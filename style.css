@@ -1,0 +1,76 @@
+html,body{
+    box-sizing:border-box;
+    font-family: sans-serif,'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS';
+    font-weight: 550;
+    color: #828181;
+    font-size:0.9rem;
+}
+
+main{
+    padding: 0px;
+    margin: 0px;
+}
+
+.lighter-text {
+    color: #a7a7a7;
+
+}
+
+.custom-select:focus {
+    border-color: rgb(115, 103, 240) ;
+    box-shadow: 0 0 5px rgba(115, 103, 240, 0.5) ;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.form-control:focus{
+    border-color: #7367F0 ;
+    box-shadow: 0 0 5px rgba(115, 103, 240, 0.5) ;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.input-group-text{
+    background-color: white;
+}
+
+.btn{
+    background-color:#7367F0 ;
+    border: 0px transparent;
+    border-radius: 8px;
+    padding: 8px 20px ;
+}
+
+.btn:hover{
+    background-color: #5248bc;
+}
+
+.underline{
+    border-bottom:1px solid #DBDADE ;
+}
+
+.no-outline{
+    outline: none;
+    box-shadow: none;
+}
+
+
+.highlight {
+    border: 1px solid #DBDADE ; /* Default border color */
+    transition: border-color 0.3s ease-in-out;
+}
+
+.highlight:focus-within {
+    box-shadow: 0 0 5px rgba(115, 103, 240, 0.5) ;
+    border-color: #5248bc; 
+}
+
+/* .my-select option{
+    font-weight: 200;
+}
+.my-select option:hover{
+background-color: red;
+} */
+
+
+#IdentityProof{
+    overflow: hidden;
+}
