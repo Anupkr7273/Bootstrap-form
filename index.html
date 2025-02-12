@@ -27,8 +27,8 @@
                                     <img src="/icon/category.png" width="22" height="22">
                                 </span>
                             </div>
-                            <select class="custom-select" name="Category" id="category" required>
-                                <option selected disabled>Please Select Category</option>
+                            <select class="custom-select form-control" name="category" id="category" required>
+                                <option selected disabled value="">Please Select Category</option>
                                 <option value="Individual">Individual</option>
                                 <option value="Firm">Firm</option>
                                 <option value="Body of Individuals">Body of Individuals</option>
@@ -52,7 +52,7 @@
                                 </span>
                             </div>
                             <select class="custom-select" name="PanType" id="PanType" required>
-                                <option selected disabled>Select Pan Type</option>
+                                <option selected disabled value="">Select Pan Type</option>
                                 <option>Physical PAN Card & e-PAN</option>
                                 <option>e-PAN Card Only (E-mail ID is mandatory)</option>
                             </select>
@@ -67,8 +67,8 @@
                                     <img src="/icon/title.png" width="22" height="22">
                                 </span>
                             </div>
-                            <select class="custom-select" name="Title" id="Title" required>
-                                <option selected disabled>Select Title</option>
+                            <select class="custom-select" name="Title" id="Title">
+                                <option selected disabled value="">Select Title</option>
                                 <option>Shri</option>
                                 <option>Smt</option>
                                 <option>Kumari</option>
@@ -119,8 +119,8 @@
                                     <img src="/icon/title.png" width="22" height="22">
                                 </span>
                             </div>
-                            <select class="custom-select" name="partnerTitle" id="Title" required>
-                                <option selected disabled>Select Title</option>
+                            <select class="custom-select" name="partnerTitle" id="Title">
+                                <option selected disabled value="">Select Title</option>
                                 <option>Shri</option>
                                 <option>Smt</option>
                             </select>
@@ -139,8 +139,8 @@
                                 <span>
                                     <img src="icon/user.png" width="22" height="22" alt="">
                                 </span>
-                                <input type="text" name="firstName" class="flex-grow-1 border-0 p-1 pl-3 no-outline"
-                                    placeholder="Enter First Name">
+                                <input type="text" name="firstName" id="firstName"
+                                    class="flex-grow-1 border-0 p-1 pl-3 no-outline" placeholder="Enter First Name">
                             </div>
                         </div>
                         <div class="box mb-3 col-12 col-sm-6 col-md-4  ">
@@ -149,8 +149,8 @@
                                 <span>
                                     <img src="icon/user.png" width="22" height="22" alt="">
                                 </span>
-                                <input type="text" name="middleName" class="flex-grow-1 border-0 p-1 pl-3 no-outline"
-                                    placeholder="Enter Middle Name">
+                                <input type="text" name="middleName" id="middleName"
+                                    class="flex-grow-1 border-0 p-1 pl-3 no-outline" placeholder="Enter Middle Name">
                             </div>
                         </div>
                         <div class="box mb-3 col-12 col-sm-6 col-md-4  ">
@@ -159,8 +159,8 @@
                                 <span>
                                     <img src="icon/user.png" width="22" height="22" alt="">
                                 </span>
-                                <input type="text" name="lastName" class="flex-grow-1 border-0 p-1 pl-3 no-outline"
-                                    placeholder="Enter Last Name">
+                                <input type="text" name="lastName" id="lastName"
+                                    class="flex-grow-1 border-0 p-1 pl-3 no-outline" placeholder="Enter Last Name">
                             </div>
                         </div>
                     </div>
@@ -174,7 +174,9 @@
                                 <img src="/icon/panNumber.png" width="22" height="22" alt="">
                             </span>
                         </div>
-                        <input type="text" name="nameOnCard" class="form-control" placeholder="Enter Name On Card">
+                        <input type="text" name="nameOnCard" id="nameOnCard" class="form-control name"
+                            placeholder="Enter Name On Card" required>
+                        <div class="invalid-feedback">Please enter a valid name.</div>
                     </div>
                 </div>
                 <!-- parent details  -->
@@ -191,8 +193,8 @@
                                     <img src="/icon/Parent.png" width="22" height="22">
                                 </span>
                             </div>
-                            <select class="custom-select" id="parentSelect" required>
-                                <option disabled selected>Please Select Print Parent</option>
+                            <select class="custom-select" id="parentSelect">
+                                <option disabled selected value="">Please Select Print Parent</option>
                                 <option value="father">Father</option>
                                 <option value="mother">Mother</option>
                             </select>
@@ -205,7 +207,8 @@
                                 <span>
                                     <img src="icon/father.png" width="22" height="22" alt="">
                                 </span>
-                                <input type="text" name="fatherFirstName" class="flex-grow-1 border-0 p-1 pl-3 no-outline"
+                                <input type="text" name="fatherFirstName" id="father-first-name"
+                                    class="flex-grow-1 border-0 p-1 pl-3 no-outline"
                                     placeholder="Enter Father's First Name">
                             </div>
                         </div>
@@ -215,7 +218,8 @@
                                 <span>
                                     <img src="icon/father.png" width="22" height="22" alt="">
                                 </span>
-                                <input type="text" name="fatherMiddleName" class="flex-grow-1 border-0 p-1 pl-3 no-outline"
+                                <input type="text" name="fatherMiddleName"
+                                    class="flex-grow-1 border-0 p-1 pl-3 no-outline"
                                     placeholder="Enter Father's Middle Name">
                             </div>
                         </div>
@@ -225,7 +229,8 @@
                                 <span>
                                     <img src="icon/father.png" width="22" height="22" alt="">
                                 </span>
-                                <input type="text" name="fatherLastName" class="flex-grow-1 border-0 p-1 pl-3 no-outline"
+                                <input type="text" name="fatherLastName"
+                                    class="flex-grow-1 border-0 p-1 pl-3 no-outline"
                                     placeholder="Enter Father's Last Name">
                             </div>
                         </div>
@@ -237,7 +242,8 @@
                                 <span>
                                     <img src="icon/mother.png" width="22" height="22" alt="">
                                 </span>
-                                <input type="text" name="motherFirstName" class="flex-grow-1 border-0 p-1 pl-3 no-outline"
+                                <input type="text" name="motherFirstName"
+                                    class="flex-grow-1 border-0 p-1 pl-3 no-outline"
                                     placeholder="Enter Mother's First Name">
                             </div>
                         </div>
@@ -247,7 +253,8 @@
                                 <span>
                                     <img src="icon/mother.png" width="22" height="22" alt="">
                                 </span>
-                                <input type="text" name="motherMiddleName" class="flex-grow-1 border-0 p-1 pl-3 no-outline"
+                                <input type="text" name="motherMiddleName"
+                                    class="flex-grow-1 border-0 p-1 pl-3 no-outline"
                                     placeholder="Enter Mother's Middle Name">
                             </div>
                         </div>
@@ -257,25 +264,30 @@
                                 <span>
                                     <img src="icon/mother.png" width="22" height="22" alt="">
                                 </span>
-                                <input type="text" name="motherLastName" class="flex-grow-1 border-0 p-1 pl-3 no-outline"
+                                <input type="text" name="motherLastName"
+                                    class="flex-grow-1 border-0 p-1 pl-3 no-outline"
                                     placeholder="Enter Mother's Last Name">
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="row was-validated">
+                <div class="row">
                     <div class="mb-3 col-12 col-sm-6 col-md-4">
-                        <label for="Title" class="form-label mb-1">Mobile No</label>
+                        <label for="mobileNo" class="form-label mb-1">Mobile No</label>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">
                                     <img src="/icon/MobileNumber.png" width="22" height="22" alt="">
                                 </span>
                             </div>
-                            <input type="text" name="mobileNo" class="form-control" placeholder="Enter Mobile Number">
+                            <input type="text" name="mobileNo" id="mobileNo" class="form-control"
+                                placeholder="Enter Mobile Number" required>
+                            <div class="invalid-feedback">Please enter a valid 10-digit mobile number starting with
+                                6,7,8, or 9.</div>
                         </div>
                     </div>
+
                     <div class="mb-3 col-12 col-sm-6 col-md-4 form-group">
                         <label for="email" class="form-label mb-1">Email</label>
                         <div class="input-group mb-3">
@@ -284,13 +296,11 @@
                                     <img src="/icon/gmail.png" width="22" height="22" alt="">
                                 </span>
                             </div>
-                            <input type="email" name="email" class="form-control "
-                                placeholder="Enter Email" required>
-                            <div class="valid-feedback">ok</div>
+                            <input type="email" name="email" id="email" class="form-control" placeholder="Enter Email"
+                                required>
                             <div class="invalid-feedback">Please enter a valid email.</div>
                         </div>
                     </div>
-
                     <div class="mb-3 col-12 col-sm-6 col-md-4">
                         <label for="Title" class="form-label mb-1">Source Of Income</label>
                         <div class="input-group mb-3">
@@ -320,10 +330,11 @@
                                     <img src="/icon/dob.png" width="22" height="22" alt="">
                                 </span>
                             </div>
-                            <input type="text" name="dateOfBirth" class="form-control" placeholder="dd/mm/yyyy">
+                            <input type="text" name="dateOfBirth" id="dateOfBirth" class="form-control"
+                                placeholder="dd/mm/yyyy" required>
+                            <div class="invalid-feedback">Please enter a valid date in dd/mm/yyyy format.</div>
                         </div>
                     </div>
-
                     <div class="mb-3 col-12 col-sm-6">
                         <label for="Title" class="form-label mb-1">Where should we send your physical PAN card?</label>
                         <div class="input-group mb-3">
@@ -332,7 +343,7 @@
                                     <img src="/icon/location.png" width="22" height="22">
                                 </span>
                             </div>
-                            <select class="custom-select" name="postAddress" name="Title" id="Title" required>
+                            <select class="custom-select" name="postAddress" id="Title" required>
                                 <option selected>Residence Address</option>
                                 <option>Office Address</option>
                             </select>
@@ -352,7 +363,8 @@
                                     <img src="icon/pincode.png" width="22" height="22" alt="">
                                 </span>
                                 <input type="text" name="pincode" id="pincode"
-                                    class="flex-grow-1 border-0 p-1 pl-3 no-outline" placeholder="Enter Pincode / Zip code">
+                                    class="flex-grow-1 border-0 p-1 pl-3 no-outline"
+                                    placeholder="Enter Pincode / Zip code" required>
                             </div>
                         </div>
                         <div class="mb-3 col-12 col-sm-6 col-md-4">
@@ -363,7 +375,7 @@
                                         <img src="/icon/postbox.png" width="22" height="22">
                                     </span>
                                 </div>
-                                <select class="custom-select" id="postOffice" name="address2">
+                                <select class="custom-select" id="postOffice" name="address2" required>
                                     <option selected disabled>Select Post Office</option>
                                 </select>
                             </div>
@@ -388,7 +400,7 @@
                                     <img src="icon/Village.png" width="22" height="22" alt="">
                                 </span>
                                 <input type="text" name="address3" class="flex-grow-1 border-0 p-1 pl-3 no-outline"
-                                    placeholder="Enter Name of Premises / Building / Village">
+                                    placeholder="Enter Name of Premises / Building / Village" required>
                             </div>
                         </div>
                         <div class="box mb-3 col-12 col-sm-6 col-md-3">
@@ -400,7 +412,7 @@
                                 </span>
                                 <input type="text" name="address4" class="flex-grow-1 border-0 p-1 pl-3 no-outline"
                                     placeholder="Enter Area / Locality / Taluka/ Sub-
-                                Division">
+                                Division" required>
                             </div>
                         </div>
                         <div class="box mb-3 col-12 col-sm-6 col-md-3">
@@ -461,7 +473,7 @@
                         </div>
                     </div>
                 </div>
-
+                <!-- aadhar card details  -->
                 <div class="row d-none" id="aadhar-details">
                     <div class="mb-3 col-12 col-sm-6">
                         <label class="form-label mb-1">Aadhar Number</label>
@@ -471,8 +483,9 @@
                                     <img src="/icon/adharcard.png" width="22" height="22" alt="">
                                 </span>
                             </div>
-                            <input type="text" name="aadharNumber" class="form-control"
+                            <input type="text" name="aadharNumber" id="aadhar-number" class="form-control"
                                 placeholder="Enter Aadhaar Number">
+                            <div class="invalid-feedback">Aadhaar Number must be exactly 12 digits.</div>
                         </div>
                     </div>
                     <div class="mb-3 col-12 col-sm-6">
@@ -483,11 +496,13 @@
                                     <img src="/icon/adharcard.png" width="22" height="22" alt="">
                                 </span>
                             </div>
-                            <input type="text" name="nameOnAadhar" class="form-control" placeholder="Enter Name On">
+                            <input type="text" name="nameOnAadhar" class="form-control name" id="name-on-aadhar"
+                                placeholder="Enter Name On Aadhar">
+                            <div class="invalid-feedback">Please enter a valid name.</div>
                         </div>
                     </div>
                 </div>
-
+                <!-- proofs  -->
                 <div class="row">
                     <div class="mb-3 col-12 col-sm-6 col-md-4">
                         <label class="form-label mb-1">Proof of Identity</label>
@@ -497,8 +512,8 @@
                                     <img src="/icon/identityproof.png" width="22" height="22">
                                 </span>
                             </div>
-                            <select class="custom-select" name="IdentityProof" id="IdentityProof">
-                                <option selected="">Please Select Identity Proof</option>
+                            <select class="custom-select" name="IdentityProof" id="IdentityProof" required>
+                                <option disabled selected value="">Please Select Identity Proof</option>
                                 <option>AADHAAR Card issued by the Unique
                                     Identification Authority of India</option>
                                 <option>Elector's photo identity card</option>
@@ -533,8 +548,8 @@
                                     <img src="/icon/ProofofAddress.png" width="22" height="22">
                                 </span>
                             </div>
-                            <select class="custom-select" name="AddressProof" id="AddressProof">
-                                <option selected="">Please Select Address Proof</option>
+                            <select class="custom-select" name="AddressProof" id="AddressProof" required>
+                                <option disabled selected value="">Please Select Address Proof</option>
                                 <option>AADHAAR Card issued by the Unique
                                     Identification Authority of India</option>
                                 <option>Elector's photo identity card</option>
@@ -569,8 +584,8 @@
                                     <img src="/icon/birthday.png" width="22" height="22">
                                 </span>
                             </div>
-                            <select class="custom-select" name="DOBProof" id="DOBProof">
-                                <option selected="">Please Select DOB Proof</option>
+                            <select class="custom-select" name="DOBProof" id="DOBProof" required>
+                                <option disabled selected value="">Please Select DOB Proof</option>
                                 <option>AADHAAR Card issued by the Unique
                                     Identification Authority of India</option>
                                 <option>Elector's photo identity card</option>
@@ -598,33 +613,38 @@
                         </div>
                     </div>
                 </div>
-
-                <p class="text-danger h5 pb-3">Assessing officer (AO code)
-                </p>
-
+                <!-- assessing officer details  -->
+                <p class="text-danger h5 pb-3">Assessing officer (AO code)</p>
                 <div class="row">
                     <div class="mb-3 col-12 col-sm-6 col-md-3">
                         <label for="Title" class="form-label mb-1">Area Code</label>
                         <div>
-                            <input type="text" name="areaCode" class="form-control" placeholder="Enter Area Code">
+                            <input type="text" name="areaCode" class="form-control" placeholder="Enter Area Code"
+                                required>
+                            <div class="invalid-feedback">Area Code must be exactly 3 letters (A-Z only).</div>
                         </div>
                     </div>
                     <div class="mb-3 col-12 col-sm-6 col-md-3">
                         <label for="Title" class="form-label mb-1">AO Type</label>
                         <div>
-                            <input type="text" name="aoType" class="form-control" placeholder="Enter AO Type">
+                            <input type="text" name="aoType" class="form-control" placeholder="Enter AO Type" required>
+                            <div class="invalid-feedback">AO Type must be exactly 2 letters (A-Z only).</div>
                         </div>
                     </div>
                     <div class="mb-3 col-12 col-sm-6 col-md-3">
                         <label for="Title" class="form-label mb-1">Range Code</label>
                         <div>
-                            <input type="text" name="rangeCode" class="form-control" placeholder="Enter Range Code">
+                            <input type="text" name="rangeCode" class="form-control" placeholder="Enter Range Code"
+                                required>
+                            <div class="invalid-feedback">Range Code must be 1 to 3 digits (0-9 only).</div>
                         </div>
                     </div>
                     <div class="mb-3 col-12 col-sm-6 col-md-3">
                         <label for="Title" class="form-label mb-1">AO Number</label>
                         <div>
-                            <input type="text" name="aoNumber" class="form-control" placeholder="Enter AO Number">
+                            <input type="text" name="aoNumber" class="form-control" placeholder="Enter AO Number"
+                                required>
+                            <div class="invalid-feedback">AO Number must be 1 to 2 digits (0-9 only).</div>
                         </div>
                     </div>
                 </div>
@@ -637,11 +657,11 @@
                                     <img src="/icon/Fee.png" width="22" height="22" alt="">
                                 </span>
                             </div>
-                            <input type="text" class="form-control" placeholder="">
+                            <input type="text" class="form-control" id="processing-fee" placeholder="" readonly>
                         </div>
                     </div>
                 </div>
-                <button type="button" class="btn btn-primary">Continue</button>
+                <button type="submit" class="btn btn-primary">Continue</button>
             </form>
         </div>
     </div>
