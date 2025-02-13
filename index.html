@@ -283,8 +283,7 @@
                             </div>
                             <input type="text" name="mobileNo" id="mobileNo" class="form-control"
                                 placeholder="Enter Mobile Number" required>
-                            <div class="invalid-feedback">Please enter a valid 10-digit mobile number starting with
-                                6,7,8, or 9.</div>
+                            <div class="invalid-feedback">Please enter a valid 10-digit mobile number.</div>
                         </div>
                     </div>
 
@@ -322,19 +321,22 @@
                 </div>
 
                 <div class="row">
+
                     <div class="mb-3 col-12 col-sm-6">
-                        <label for="Title" class="form-label mb-1">Date of Birth</label>
-                        <div class="input-group mb-3">
+                        <label for="dateOfBirth" class="form-label mb-1">Date of Birth</label>
+                        <div class="input-group">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">
                                     <img src="/icon/dob.png" width="22" height="22" alt="">
                                 </span>
                             </div>
                             <input type="text" name="dateOfBirth" id="dateOfBirth" class="form-control"
-                                placeholder="dd/mm/yyyy" required>
-                            <div class="invalid-feedback">Please enter a valid date in dd/mm/yyyy format.</div>
+                                placeholder="dd/mm/yyyy" required maxlength="10" pattern="\d{2}/\d{2}/\d{4}"
+                                oninput="formatDate(this)">
+                            <div id="dobError" class="invalid-feedback"></div>
                         </div>
                     </div>
+
                     <div class="mb-3 col-12 col-sm-6">
                         <label for="Title" class="form-label mb-1">Where should we send your physical PAN card?</label>
                         <div class="input-group mb-3">
@@ -343,17 +345,19 @@
                                     <img src="/icon/location.png" width="22" height="22">
                                 </span>
                             </div>
-                            <select class="custom-select" name="postAddress" id="Title" required>
-                                <option selected>Residence Address</option>
-                                <option>Office Address</option>
+                            <select class="custom-select" name="postAddress" id="post-address" required>
+                                <option selected value="residence">Residence Address</option>
+                                <option value="office">Office Address</option>
                             </select>
                         </div>
                     </div>
                 </div>
                 <!-- address details -->
-                <div class="d-none" id="address-details">
+
+                <!-- residence address  -->
+                <div class="d-none" id="residence-address">
                     <div class="underline pb-2 mb-3">
-                        <p class="h6 " id="address-details-heading"></p>
+                        <p class="h6 ">Applicant's Residence Address Details</p>
                     </div>
                     <div class="row">
                         <div class="box mb-3 col-12 col-sm-6 col-md-4  ">
@@ -362,7 +366,7 @@
                                 <span>
                                     <img src="icon/pincode.png" width="22" height="22" alt="">
                                 </span>
-                                <input type="text" name="pincode" id="pincode"
+                                <input type="text" name="r-pincode" id="r-pincode"
                                     class="flex-grow-1 border-0 p-1 pl-3 no-outline"
                                     placeholder="Enter Pincode / Zip code" required>
                             </div>
@@ -375,7 +379,7 @@
                                         <img src="/icon/postbox.png" width="22" height="22">
                                     </span>
                                 </div>
-                                <select class="custom-select" id="postOffice" name="address2" required>
+                                <select class="custom-select" id="r-postOffice" name="address2" required>
                                     <option selected disabled>Select Post Office</option>
                                 </select>
                             </div>
@@ -404,8 +408,7 @@
                             </div>
                         </div>
                         <div class="box mb-3 col-12 col-sm-6 col-md-3">
-                            <label for="Title" class="form-label mb-1 mb-1">Area / Locality / Taluka/ Sub-
-                                Division</label>
+                            <label for="Title" class="form-label mb-1 mb-1">Area / Locality / Taluka/ Sub-Division</label>
                             <div class="rounded p-1 d-flex highlight">
                                 <span>
                                     <img src="icon/Sub-Division.png" width="22" height="22" alt="">
@@ -421,7 +424,7 @@
                                 <span>
                                     <img src="icon/city.png" width="22" height="22" alt="">
                                 </span>
-                                <input type="text" name="district" id="district"
+                                <input type="text" name="district" id="r-district"
                                     class="flex-grow-1 border-0 p-1 pl-3 no-outline"
                                     placeholder="Enter Town / City / District" disabled>
                             </div>
@@ -434,7 +437,107 @@
                                         <img src="/icon/state.png" width="22" height="22">
                                     </span>
                                 </div>
-                                <select class="custom-select" id="state" name="state">
+                                <select class="custom-select" id="r-state" name="state">
+                                    <option selected disabled>Select State</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- office address  -->
+                <div class="d-none" id="office-address">
+                    <div class="underline pb-2 mb-3">
+                        <p class="h6 ">Applicant's Office Address Details</p>
+                    </div>
+                    <div class="row">
+                        <div class="box mb-3 col-12 col-sm-6 col-md-4  ">
+                            <label class="form-label mb-1 mb-1">Pincode/Zip code</label>
+                            <div class="rounded p-1 d-flex highlight">
+                                <span>
+                                    <img src="icon/pincode.png" width="22" height="22" alt="">
+                                </span>
+                                <input type="text" name="pincode" id="o-pincode"
+                                    class="flex-grow-1 border-0 p-1 pl-3 no-outline"
+                                    placeholder="Enter Pincode / Zip code" required>
+                            </div>
+                        </div>
+                        <div class="mb-3 col-12 col-sm-6 col-md-4">
+                            <label for="Title" class="form-label mb-1">Road / Street / Lane/Post Office</label>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <img src="/icon/postbox.png" width="22" height="22">
+                                    </span>
+                                </div>
+                                <select class="custom-select" id="o-postOffice" name="address2" required>
+                                    <option selected disabled>Select Post Office</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="box mb-3 col-12 col-sm-6 col-md-4  ">
+                            <label class="form-label mb-1 mb-1">Name of office</label>
+                            <div class="rounded p-1 d-flex highlight">
+                                <span>
+                                    <img src="icon/shop.png" width="22" height="22" alt="">
+                                </span>
+                                <input type="text" name="office" class="flex-grow-1 border-0 p-1 pl-3 no-outline"
+                                    placeholder="Enter Name of office ">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="box mb-3 col-12 col-sm-6 col-md-4  ">
+                            <label class="form-label mb-1 mb-1">Flat / Room / Door / Block No</label>
+                            <div class="rounded p-1 d-flex highlight">
+                                <span>
+                                    <img src="icon/Flat.png" width="22" height="22" alt="">
+                                </span>
+                                <input type="text" name="address2" class="flex-grow-1 border-0 p-1 pl-3 no-outline"
+                                    placeholder="Enter Flat / Room / Door / Block No ">
+                            </div>
+                        </div>
+                        <div class="box mb-3 col-12 col-sm-6 col-md-4  ">
+                            <label for="Title" class="form-label mb-1 mb-1">Name of Premises / Building /
+                                Village</label>
+                            <div class="rounded p-1 d-flex highlight">
+                                <span>
+                                    <img src="icon/Village.png" width="22" height="22" alt="">
+                                </span>
+                                <input type="text" name="address3" class="flex-grow-1 border-0 p-1 pl-3 no-outline"
+                                    placeholder="Enter Name of Premises / Building / Village" required>
+                            </div>
+                        </div>
+                        <div class="box mb-3 col-12 col-sm-6 col-md-4  ">
+                            <label for="Title" class="form-label mb-1 mb-1">Area / Locality / Taluka/ Sub-Division</label>
+                            <div class="rounded p-1 d-flex highlight">
+                                <span>
+                                    <img src="icon/Sub-Division.png" width="22" height="22" alt="">
+                                </span>
+                                <input type="text" name="address4" class="flex-grow-1 border-0 p-1 pl-3 no-outline"
+                                    placeholder="Enter Area / Locality / Taluka/ Sub-Division" required>
+                            </div>
+                        </div>
+                        <div class="box mb-3 col-12 col-sm-6 col-md-4  ">
+                            <label for="Title" class="form-label mb-1 mb-1">Town / City / District</label>
+                            <div class="rounded p-1 d-flex highlight">
+                                <span>
+                                    <img src="icon/city.png" width="22" height="22" alt="">
+                                </span>
+                                <input type="text" name="district" id="o-district"
+                                    class="flex-grow-1 border-0 p-1 pl-3 no-outline"
+                                    placeholder="Enter Town / City / District" disabled>
+                            </div>
+                        </div>
+                        <div class="box mb-3 col-12 col-sm-6 col-md-4  ">
+                            <label for="Title" class="form-label mb-1">State / Union Territory</label>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">
+                                        <img src="/icon/state.png" width="22" height="22">
+                                    </span>
+                                </div>
+                                <select class="custom-select" id="o-state" name="state">
                                     <option selected disabled>Select State</option>
                                 </select>
                             </div>
@@ -485,7 +588,6 @@
                             </div>
                             <input type="text" name="aadharNumber" id="aadhar-number" class="form-control"
                                 placeholder="Enter Aadhaar Number">
-                            <div class="invalid-feedback">Aadhaar Number must be exactly 12 digits.</div>
                         </div>
                     </div>
                     <div class="mb-3 col-12 col-sm-6">
@@ -498,7 +600,6 @@
                             </div>
                             <input type="text" name="nameOnAadhar" class="form-control name" id="name-on-aadhar"
                                 placeholder="Enter Name On Aadhar">
-                            <div class="invalid-feedback">Please enter a valid name.</div>
                         </div>
                     </div>
                 </div>
